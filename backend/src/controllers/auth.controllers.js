@@ -1,6 +1,6 @@
-
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
+import { generateToken } from "../lib/utils.js"; // ⚠️ "generateToken" kahin import hi nahi tha — ReferenceError deta ye
 
 export const signup = async (req, res) => {
   const { role, email, password } = req.body;
@@ -9,11 +9,11 @@ export const signup = async (req, res) => {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    // if (password.length < 6) {
-    //   return res.status(400).json({ message: "Password must be at least 6 characters" });
-    // }
+    if (password.length < 6) { // ⚠️ ye check comment out tha — User model me minlength:6 hai to iske bina Mongoose error thoda ajeeb message dega, isliye enable kar diya
+      return res.status(400).json({ message: "Password must be at least 6 characters" });
+    }
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: email });
 
     if (user) return res.status(400).json({ message: "Email already exists" });
 
@@ -27,9 +27,8 @@ export const signup = async (req, res) => {
     });
 
     if (newUser) {
-      // generate jwt token here
+      await newUser.save(); // ⚠️ pehle save() hona chahiye, generateToken baad me — pehle wale order me agar save fail ho jaye to bhi cookie/token bhej diya jata tha ek user ke liye jo DB me hai hi nahi
       generateToken(newUser._id, res);
-      await newUser.save();
 
       res.status(201).json({
         _id: newUser._id,
@@ -44,10 +43,11 @@ export const signup = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 export const login = async (req, res) => {
   const { email, password } = req.body;
   try {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: email });
     if (!user) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
@@ -59,10 +59,9 @@ export const login = async (req, res) => {
 
     res.status(200).json({
       _id: user._id,
-      fullName: user.fullName,
       email: user.email,
-      password: user.password,
-      profilePic: user.profilePic,
+      role: user.role, // ⚠️ "fullName" aur "profilePic" User model me exist hi nahi karte (schema me sirf email/password/role hai) — "role" bhej diya jo actually kaam ka field hai
+      // ⚠️ "password: user.password" HATA DIYA — hashed password bhi frontend ko response me bhejna bada security issue tha, kabhi na karein
     });
   } catch (error) {
     console.log("Error in login controller ", error.message);
@@ -73,10 +72,9 @@ export const login = async (req, res) => {
 export const logout = (req, res) => {
   try {
     res.cookie("jwt", "", { maxAge: 0 });
-    res.status(200).json({ message: "Logout succesfully" });
+    res.status(200).json({ message: "Logout successfully" }); // ⚠️ "succesfully" typo fix
   } catch (error) {
     console.log("Error in logout controller ", error.message);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
-
