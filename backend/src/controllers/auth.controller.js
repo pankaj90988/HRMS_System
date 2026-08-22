@@ -1,9 +1,14 @@
 import User from "../models/user.model.js";
+import PersonalDetail from "../models/personaldeatail.model.js";
 import bcrypt from "bcryptjs";
 import { generateToken } from "../lib/utils.js"; // ⚠️ "generateToken" kahin import hi nahi tha — ReferenceError deta ye
 
 export const signup = async (req, res) => {
   const { role, email, password } = req.body;
+
+  // if(role === "HR"){
+  //   return res.status(400).json({ message: "you cannot become HR" });
+  // }
   try {
     if (!role || !email || !password) {
       return res.status(400).json({ message: "All fields are required" });
@@ -27,7 +32,9 @@ export const signup = async (req, res) => {
     });
 
     if (newUser) {
-      await newUser.save(); // ⚠️ pehle save() hona chahiye, generateToken baad me — pehle wale order me agar save fail ho jaye to bhi cookie/token bhej diya jata tha ek user ke liye jo DB me hai hi nahi
+      await newUser.save(); 
+
+      await PersonalDetail.create({ userId: newUser._id });
       generateToken(newUser._id, res);
 
       res.status(201).json({
