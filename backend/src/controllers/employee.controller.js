@@ -1,6 +1,4 @@
 
-
-export default router;
 export const getUsersPersonalDetailsByIds = async (req, res) => {
   try {
     const data = req.body;
