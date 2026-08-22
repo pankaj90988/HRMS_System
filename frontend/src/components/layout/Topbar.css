@@ -1,0 +1,22 @@
+.df-topbar {
+  height: var(--topbar-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--sp-7);
+  border-bottom: 1px solid var(--ink-200);
+  background: var(--morning-cream);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.df-topbar__title {
+  font-size: var(--fs-lg);
+}
+
+.df-topbar__subtitle {
+  font-size: var(--fs-sm);
+  color: var(--ink-500);
+  margin-top: 2px;
+}

@@ -1,0 +1,41 @@
+.df-payroll__hero,
+.df-payroll__summary {
+  background: var(--arc-gradient);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: var(--sp-5);
+}
+
+.df-payroll__label {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--ink-700);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.df-payroll__amount {
+  font-family: var(--font-display);
+  font-size: var(--fs-3xl);
+  color: var(--ink-900);
+}
+
+.df-payroll__sub {
+  font-size: var(--fs-sm);
+  color: var(--ink-700);
+}
+
+.df-payroll__note p {
+  font-size: var(--fs-sm);
+  color: var(--ink-700);
+  line-height: 1.6;
+}
+
+.df-payroll__emp {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-weight: 600;
+  color: var(--ink-900);
+}

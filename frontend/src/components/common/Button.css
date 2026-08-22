@@ -1,0 +1,56 @@
+.df-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.01em;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: box-shadow var(--dur-fast) var(--ease-flow), background var(--dur-fast) var(--ease-flow);
+}
+
+.df-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.df-btn--primary {
+  background: var(--cta-gradient);
+  color: var(--ink-900);
+  box-shadow: var(--shadow-sm);
+}
+.df-btn--primary:hover:not(:disabled) {
+  box-shadow: var(--shadow-lift);
+}
+
+.df-btn--ghost {
+  background: transparent;
+  border-color: var(--ink-200);
+  color: var(--ink-700);
+}
+.df-btn--ghost:hover:not(:disabled) {
+  border-color: var(--warm-apricot);
+  background: var(--morning-cream);
+}
+
+.df-btn--danger {
+  background: var(--status-rejected-bg);
+  color: var(--status-rejected);
+}
+.df-btn--danger:hover:not(:disabled) {
+  box-shadow: 0 8px 20px rgba(201, 91, 63, 0.25);
+}
+
+.df-btn--full {
+  width: 100%;
+}
+
+.df-btn__icon {
+  display: inline-flex;
+  align-items: center;
+}

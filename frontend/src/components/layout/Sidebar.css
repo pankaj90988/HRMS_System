@@ -1,0 +1,109 @@
+.df-sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  background: var(--surface-raised);
+  border-right: 1px solid var(--ink-200);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding: var(--sp-5) var(--sp-4);
+}
+
+.df-sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0 var(--sp-2) var(--sp-6);
+}
+
+.df-sidebar__arc {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--arc-gradient);
+  flex-shrink: 0;
+}
+
+.df-sidebar__brand-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--ink-900);
+}
+
+.df-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  flex: 1;
+}
+
+.df-sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  color: var(--ink-700);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  transition: background var(--dur-fast) var(--ease-flow), color var(--dur-fast) var(--ease-flow), transform var(--dur-fast) var(--ease-flow);
+}
+
+.df-sidebar__link:hover {
+  background: var(--morning-cream);
+  transform: translateX(2px);
+}
+
+.df-sidebar__link.is-active {
+  background: var(--cta-gradient);
+  color: var(--ink-900);
+}
+
+.df-sidebar__link-icon {
+  width: 20px;
+  text-align: center;
+}
+
+.df-sidebar__footer {
+  border-top: 1px solid var(--ink-200);
+  padding-top: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.df-sidebar__user-name {
+  font-weight: 700;
+  color: var(--ink-900);
+  font-size: var(--fs-sm);
+}
+
+.df-sidebar__user-role {
+  font-size: var(--fs-xs);
+  color: var(--ink-500);
+}
+
+.df-sidebar__logout {
+  border: 1.5px solid var(--ink-200);
+  background: transparent;
+  border-radius: var(--radius-pill);
+  padding: 10px;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  color: var(--ink-700);
+  transition: border-color var(--dur-fast), background var(--dur-fast);
+}
+.df-sidebar__logout:hover {
+  border-color: var(--warm-apricot);
+  background: var(--morning-cream);
+}
+
+@media (max-width: 900px) {
+  .df-sidebar {
+    display: none;
+  }
+}

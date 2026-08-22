@@ -1,14 +1,24 @@
 {
-  "name": "frontend",
-  "version": "0.0.0",
+  "name": "dayflow-hrms",
   "private": true,
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
+  "dependencies": {
+    "framer-motion": "^11.11.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.2"
+  },
   "devDependencies": {
-    "vite": "^8.2.0"
+    "@vitejs/plugin-react": "^4.3.2",
+    "vite": "^5.4.8"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true
   }
 }

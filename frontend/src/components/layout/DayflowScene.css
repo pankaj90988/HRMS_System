@@ -1,0 +1,130 @@
+.df-scene {
+  position: relative;
+  height: 100%;
+  min-height: 520px;
+  overflow: hidden;
+  background: var(--arc-gradient);
+  display: flex;
+  align-items: flex-end;
+  border-radius: var(--radius-lg);
+}
+
+.df-scene__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.55;
+}
+.df-scene__blob--sky {
+  width: 260px;
+  height: 260px;
+  background: var(--dawn-sky);
+  top: -60px;
+  left: -60px;
+}
+.df-scene__blob--peach {
+  width: 320px;
+  height: 320px;
+  background: var(--soft-peach);
+  bottom: -100px;
+  right: -80px;
+}
+.df-scene__blob--apricot {
+  width: 180px;
+  height: 180px;
+  background: var(--warm-apricot);
+  top: 40%;
+  right: 10%;
+  opacity: 0.7;
+}
+
+.df-scene__arc {
+  position: absolute;
+  width: 720px;
+  height: 720px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(43, 36, 32, 0.15);
+  left: 50%;
+  bottom: -420px;
+  transform: translateX(-50%);
+}
+
+.df-scene__copy {
+  position: relative;
+  z-index: 2;
+  padding: var(--sp-8) var(--sp-7);
+  color: var(--ink-900);
+  width: 100%;
+}
+
+.df-scene__eyebrow {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--ink-700);
+  margin-bottom: var(--sp-2);
+}
+
+.df-scene__headline {
+  font-size: var(--fs-3xl);
+  margin-bottom: var(--sp-6);
+}
+
+.df-scene__beat {
+  position: relative;
+  min-height: 90px;
+}
+
+.df-scene__beat-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  max-width: 380px;
+}
+
+.df-scene__beat-time {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+}
+
+.df-scene__beat-label {
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-700);
+}
+
+.df-scene__beat-item p {
+  flex-basis: 100%;
+  font-size: var(--fs-md);
+  color: var(--ink-700);
+  margin-top: 4px;
+}
+
+.df-scene__dots {
+  display: flex;
+  gap: 8px;
+  margin-top: var(--sp-6);
+}
+
+.df-scene__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(43, 36, 32, 0.2);
+  transition: background var(--dur-med) var(--ease-flow), width var(--dur-med) var(--ease-flow);
+}
+.df-scene__dot.is-active {
+  background: var(--ink-900);
+  width: 22px;
+  border-radius: var(--radius-pill);
+}
+
+@media (max-width: 900px) {
+  .df-scene {
+    display: none;
+  }
+}

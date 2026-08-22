@@ -1,0 +1,70 @@
+.df-auth {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  background: var(--morning-cream);
+}
+
+.df-auth__scene {
+  padding: var(--sp-5);
+}
+
+.df-auth__panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-6);
+}
+
+.df-auth__form {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.df-auth__eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  color: var(--status-pending);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.df-auth__title {
+  font-size: var(--fs-2xl);
+  margin-bottom: var(--sp-2);
+}
+
+.df-auth__hint {
+  font-size: var(--fs-sm);
+  color: var(--ink-500);
+  margin-bottom: var(--sp-2);
+}
+
+.df-auth__error {
+  background: var(--status-rejected-bg);
+  color: var(--status-rejected);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.df-auth__switch {
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--ink-500);
+}
+
+.df-auth__switch a {
+  color: var(--status-rejected);
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .df-auth {
+    grid-template-columns: 1fr;
+  }
+}

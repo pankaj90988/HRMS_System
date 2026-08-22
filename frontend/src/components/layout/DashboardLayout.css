@@ -1,0 +1,20 @@
+.df-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.df-layout__main {
+  flex: 1;
+  min-width: 0;
+}
+
+.df-layout__content {
+  padding: var(--sp-7);
+  max-width: 1180px;
+}
+
+@media (max-width: 600px) {
+  .df-layout__content {
+    padding: var(--sp-4);
+  }
+}

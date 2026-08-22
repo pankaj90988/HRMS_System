@@ -1,0 +1,37 @@
+.df-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.df-field__label {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--ink-500);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.df-field input,
+.df-field select,
+.df-field textarea {
+  border: 1.5px solid var(--ink-200);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  background: var(--surface-raised);
+  color: var(--ink-900);
+  transition: border-color var(--dur-fast) var(--ease-flow), box-shadow var(--dur-fast) var(--ease-flow);
+}
+
+.df-field input:focus,
+.df-field select:focus,
+.df-field textarea:focus {
+  border-color: var(--warm-apricot);
+  box-shadow: 0 0 0 4px rgba(255, 190, 145, 0.25);
+  outline: none;
+}
+
+.df-field textarea {
+  resize: vertical;
+}

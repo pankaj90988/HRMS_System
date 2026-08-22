@@ -1,0 +1,94 @@
+/*
+  DAYFLOW DESIGN TOKENS
+  ---------------------
+  Concept: a single workday arcing from dawn to golden afternoon.
+  The four brand colors ARE the day's light — used in that order,
+  dawn -> cream light -> peach -> deep apricot, everywhere: headers,
+  progress states, the auth "horizon" scene, hover glows.
+
+  Only edit values in :root below to re-theme the whole app.
+*/
+
+:root {
+  /* ---- Brand palette (given) ---- */
+  --dawn-sky: #cfebff;      /* first light — cool, calm, used for rest states */
+  --morning-cream: #fffce1; /* paper / base surface */
+  --soft-peach: #ffddb0;    /* midday warmth — secondary accents */
+  --warm-apricot: #ffbe91;  /* golden hour — primary accent, CTAs */
+
+  /* ---- Ink (neutral, for legibility — not part of the accent ratio) ---- */
+  --ink-900: #2b2420;   /* headings */
+  --ink-700: #55483f;   /* body text */
+  --ink-500: #8a7a6d;   /* muted / captions */
+  --ink-200: #e9ded2;   /* hairlines on cream */
+  --surface: #fffdf7;   /* card surface, slightly warmer than white */
+  --surface-raised: #ffffff;
+
+  /* ---- Functional status (kept close to family hues) ---- */
+  --status-approved: #4c8c6b;
+  --status-approved-bg: #e3f2e9;
+  --status-pending: #c98a2b;
+  --status-pending-bg: #fff2dc;
+  --status-rejected: #c95b3f;
+  --status-rejected-bg: #fbe6e0;
+  --status-present: #4c8c6b;
+  --status-absent: #c95b3f;
+  --status-halfday: #c98a2b;
+  --status-leave: #6d84c9;
+
+  /* ---- Gradients (the "Dayflow arc") ---- */
+  --arc-gradient: linear-gradient(120deg, var(--dawn-sky) 0%, var(--morning-cream) 38%, var(--soft-peach) 68%, var(--warm-apricot) 100%);
+  --arc-gradient-soft: linear-gradient(180deg, var(--dawn-sky) 0%, var(--morning-cream) 100%);
+  --cta-gradient: linear-gradient(135deg, var(--soft-peach) 0%, var(--warm-apricot) 100%);
+
+  /* ---- Type ---- */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.5rem;
+  --fs-xl: 2rem;
+  --fs-2xl: 2.75rem;
+  --fs-3xl: 3.75rem;
+
+  /* ---- Spacing scale ---- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+
+  /* ---- Radius & elevation ---- */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 2px 8px rgba(43, 36, 32, 0.06);
+  --shadow-md: 0 8px 24px rgba(43, 36, 32, 0.09);
+  --shadow-lift: 0 16px 40px rgba(255, 190, 145, 0.35);
+
+  /* ---- Motion ---- */
+  --ease-flow: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur-med: 320ms;
+  --dur-slow: 700ms;
+
+  --sidebar-w: 248px;
+  --topbar-h: 72px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-med: 0ms;
+    --dur-slow: 0ms;
+  }
+}
